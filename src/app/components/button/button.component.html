@@ -1,0 +1,12 @@
+<button
+  [type]="type"
+  (click)="onClick()"
+  [class]="getClass()"
+  [disabled]="disabled || loading"
+>
+ @if (loading) {
+  <app-spinner />
+ } @else {
+   {{label}}
+ }
+</button>

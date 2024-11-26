@@ -26,6 +26,7 @@
     "ngx-cookie-service-ssr": "^19.0.0",
     "ramda": "^0.30.1",
     "rxjs": "~7.8.0",
+    "tailwind-variants": "^0.3.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
@@ -59,6 +60,7 @@
     "postcss": "^8.4.48",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.14",
     "typescript": "~5.5.4"
   },
