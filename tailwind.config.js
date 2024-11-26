@@ -7,6 +7,10 @@ module.exports = {
         screen: '100svh',
       }),
     },
+    fontFamily: {
+      sans: ['Montserrat', 'sans-serif'],
+      heading: ['Montserrat', 'sans-serif'],
+    },
   },
   plugins: [],
 }
