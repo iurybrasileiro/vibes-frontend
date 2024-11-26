@@ -1,0 +1,21 @@
+<div>
+  @if (label) {
+    <label
+      [for]="name"
+      class="block mb-2 text-sm font-medium"
+    >
+      {{label}}
+    </label>
+  }
+
+  <input
+    [(ngModel)]="value"
+    [type]="type"
+    [id]="name"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [class]="getClass()"
+    (input)="onChange(value)"
+    (blur)="onTouched()"
+  />
+</div>
