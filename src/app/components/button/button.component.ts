@@ -47,11 +47,11 @@ export class ButtonComponent {
       variants: {
         kind: {
           solid:
-            'bg-teal-600 hover:bg-teal-700 text-white disabled:bg-gray-200',
+            'bg-violet-600 hover:bg-violet-700 text-white disabled:bg-gray-200',
           outline:
-            'bg-transparent border border-teal-600 text-teal-600 hover:border-teal-700 hover:text-teal-700 disabled:border-gray-200 disabled:text-gray-200',
+            'bg-transparent border border-violet-600 text-violet-600 hover:border-violet-700 hover:text-violet-700 disabled:border-gray-200 disabled:text-gray-200',
           invisible:
-            'bg-transparent text-teal-600 underline px-0 py-0 h-auto disabled:text-gray-200 w-fit',
+            'bg-transparent text-violet-600 underline px-0 py-0 h-auto disabled:text-gray-200 w-fit',
         },
       },
       defaultVariants: {

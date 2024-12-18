@@ -1,4 +1,4 @@
-<div>
+<div [class]="class">
   @if (label) {
     <label
       [for]="name"
@@ -12,10 +12,11 @@
     [(ngModel)]="value"
     [type]="type"
     [id]="name"
+    [autocomplete]="autocomplete"
     [placeholder]="placeholder"
     [disabled]="disabled"
-    [class]="getClass()"
     (input)="onChange(value)"
     (blur)="onTouched()"
+    class="bg-gray-50 border border-gray-300 text-gray-900 outline-violet-700 text-sm rounded block w-full p-2.5"
   />
 </div>

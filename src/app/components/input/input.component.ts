@@ -5,8 +5,6 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms'
 
-import { twMerge } from 'tailwind-merge'
-
 @Component({
   selector: 'app-input',
   standalone: true,
@@ -33,16 +31,19 @@ export class InputComponent implements ControlValueAccessor {
   label: string = ''
 
   @Input({ required: true })
-  name: string = ''
+  name: HTMLInputElement['name'] = ''
 
   @Input()
-  type: string = 'text'
+  type: HTMLInputElement['type'] = 'text'
 
   @Input()
-  placeholder: string = ''
+  placeholder: HTMLInputElement['placeholder'] = ''
 
   @Input()
-  class: string = ''
+  autocomplete: HTMLInputElement['autocomplete'] = ''
+
+  @Input()
+  class: HTMLInputElement['className'] = ''
 
   writeValue(obj: any): void {
     this.value = obj
@@ -58,12 +59,5 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState?(is_disabled: boolean): void {
     this.disabled = is_disabled
-  }
-
-  getClass(): string {
-    const default_classes =
-      'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded block w-full p-2.5'
-
-    return twMerge(default_classes, this.class)
   }
 }

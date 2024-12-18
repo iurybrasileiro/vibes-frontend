@@ -1,0 +1,55 @@
+<main class="flex h-screen flex-row">
+  <div class="hidden lg:flex lg:flex-1 lg:justify-center lg:items-center bg-violet-700">
+  </div>
+
+  <div class="flex flex-1 flex-col justify-center items-center p-4 animate-fade-from-right">
+    <form class="w-full max-w-lg" [formGroup]="form" (ngSubmit)="submitHandler()">
+      <h1 class="font-bold text-3xl mb-6">Log in</h1>
+
+      <app-input
+        label="Email"
+        name="email"
+        autocomplete="email"
+        formControlName="email"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('email')?.hasError('required') && form.get('email')?.touched)"
+        message="The email is required"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('email')?.hasError('email') && form.get('email')?.touched)"
+        message="The email is invalid"
+      />
+
+      <app-input
+        label="Password"
+        type="password"
+        name="password"
+        class="mt-3"
+        autocomplete="current-password"
+        formControlName="password"
+      />
+      <div class="flex flex-row items-center">
+        <app-error-message
+          [show_message]="!!(form.get('password')?.hasError('required') && form.get('password')?.touched)"
+          message="The password is required"
+        />
+
+        <a href="/forgot-password" class="text-sm underline ml-auto">Forgot password</a>
+      </div>
+
+      <app-button
+        class="mt-6"
+        type="submit"
+        label="Send"
+        [loading]="loading()"
+        [disabled]="!(form.dirty && form.valid)"
+      />
+    </form>
+
+    <div class="flex flex-col justify-center items-center mt-8">
+      <p>Do you doesn't already have an account?</p>
+      <a href="/sign-up" class="mt-2 underline font-bold text-violet-700">Register now</a>
+    </div>
+  </div>
+</main>
