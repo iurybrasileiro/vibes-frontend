@@ -1,0 +1,100 @@
+<main class="flex h-screen flex-row">
+  <div class="flex flex-1 flex-col justify-center items-center p-4 animate-fade-from-left">
+    <form class="w-full max-w-lg" [formGroup]="form" (ngSubmit)="submitHandler()">
+      <h1 class="font-bold text-3xl mb-6">Registration</h1>
+
+      <app-input
+        label="Name"
+        name="name"
+        autocomplete="given-name"
+        formControlName="name"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('name')?.hasError('required') && form.get('name')?.touched)"
+        message="The name is required"
+      />
+
+      <app-input
+        label="Birthdate"
+        name="birthdate"
+        type="date"
+        formControlName="birthdate"
+        class="mt-3"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('birthdate')?.hasError('required') && form.get('birthdate')?.touched)"
+        message="The birthdate is required"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('birthdate')?.hasError('birthdateGreaterThan') && form.get('birthdate')?.touched)"
+        message="You need be greater than 18 years"
+      />
+
+      <app-input
+        label="Email"
+        name="email"
+        autocomplete="email"
+        formControlName="email"
+        class="mt-3"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('email')?.hasError('required') && form.get('email')?.touched)"
+        message="The email is required"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('email')?.hasError('email') && form.get('email')?.touched)"
+        message="The email is invalid"
+      />
+
+      <app-input
+        label="Password"
+        type="password"
+        name="password"
+        class="mt-3"
+        autocomplete="new-password"
+        formControlName="password"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('password')?.hasError('required') && form.get('password')?.touched)"
+        message="The password is required"
+      />
+
+      <app-input
+        label="Confirm password"
+        type="password"
+        name="passwordConfirmation"
+        class="mt-3"
+        autocomplete="new-password"
+        formControlName="passwordConfirmation"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('passwordConfirmation')?.hasError('required') && form.get('passwordConfirmation')?.touched)"
+        message="The password confirmation is required"
+      />
+      <app-error-message
+        [show_message]="!!(form.get('passwordConfirmation')?.hasError('passwordDoesntMatch') && form.get('passwordConfirmation')?.touched)"
+        message="The passwords don't match"
+      />
+
+      <div class="flex items-center mt-4">
+        <input id="link-checkbox" formControlName="termsAndConditions" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-0">
+        <label for="link-checkbox" class="ms-2 text-sm font-medium">I agree with the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a>.</label>
+      </div>
+      <app-error-message
+        [show_message]="!!(form.get('termsAndConditions')?.hasError('required') && form.get('termsAndConditions')?.touched)"
+        message="The terms and conditions should be accepted"
+      />
+
+      <app-button
+        class="mt-6"
+        type="submit"
+        label="Send"
+        [loading]="loading()"
+        [disabled]="!(form.dirty && form.valid)"
+      />
+    </form>
+  </div>
+
+  <div class="hidden lg:flex lg:flex-1 lg:justify-center lg:items-center bg-violet-700">
+  </div>
+</main>

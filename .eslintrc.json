@@ -24,8 +24,7 @@
       {
         "selector": "variable",
         "types": ["boolean"],
-        "format": ["snake_case"],
-        "prefix": ["is", "should", "has", "can", "did", "will"],
+        "format": ["snake_case", "camelCase"],
         "leadingUnderscore": "allow"
       },
       {

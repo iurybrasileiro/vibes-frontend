@@ -2,7 +2,7 @@ import { inject } from '@angular/core'
 import { CanActivateFn, Router } from '@angular/router'
 
 import { SsrCookieService } from 'ngx-cookie-service-ssr'
-import * as _ from 'ramda'
+import { isEmpty } from 'ramda'
 
 export const publicAuthGuard: CanActivateFn = async () => {
   const router = inject(Router)
@@ -10,10 +10,8 @@ export const publicAuthGuard: CanActivateFn = async () => {
 
   const token = cookies.get('access_token')
 
-  if (!_.isEmpty(token)) {
-    await router.navigate(['/'])
-
-    return false
+  if (!isEmpty(token)) {
+    return await router.navigate(['/'])
   }
 
   return true
